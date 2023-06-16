@@ -5,11 +5,9 @@ const path = require('path');
 const app = express();
 const Swal = require('sweetalert2');
 const fs = require('fs');
-const pdfjsLib = require('pdfjs-dist');
 const slugify = require('slugify');
 const ExcelJS = require('exceljs');
 const mysql = require('mysql');
-
 
 const storage = multer.diskStorage({
   destination: 'public/uploads',
@@ -93,28 +91,26 @@ db.connect((err) => {
   console.log('Conexión establecida con la base de datos MySQL');
 });
 
-// 9.- Estableciendo las rutas
 app.get('/', (req, res) => {
-    if (req.session.loggedin) {
+  if (req.session.loggedin) {
       let backgroundImage = backgrounds[req.path];
       let login = req.session.loggedin;
       let name = req.session.name;
       const avatar = req.session.avatar; // Obtén el avatar de la sesión
       res.render('index', { backgroundImage, login, name, avatar }); // Pasa el avatar al contexto de la plantilla
-    } else {
+  }else {
       res.redirect('/login'); // Redirige al formulario de inicio de sesión si no ha iniciado sesión
-    }
-  });
+  }
+});
 
-  // Ruta para procesar la carga de archivos
 app.post('/pdf/', upload2.single('archivo'), function (req, res) {
   res.redirect('/recursos');
 });
-  
+
 app.post('/upload', upload.single('avatar'), (req, res) => {
-    req.session.avatar = req.file ? req.file.filename : req.session.avatar; // Actualiza el avatar solo si se cargó un archivo
-    res.redirect('/');
-  });
+  req.session.avatar = req.file ? req.file.filename : req.session.avatar; // Actualiza el avatar solo si se cargó un archivo
+  res.redirect('/');
+});
 
 app.get('/login', (req, res) => {
   let backgroundImage = backgrounds[req.path];
@@ -343,9 +339,8 @@ app.post('/delete-pdf', (req, res) => {
   }
 });
 
-
-// 10.- Registro
-app.post('/register', upload.single('avatar'), async (req, res) => {
+ // 10.- Registro
+ app.post('/register', upload.single('avatar'), async (req, res) => {
   const user = req.body.user;
   const name = req.body.name;
   const email = req.body.email;
@@ -359,7 +354,7 @@ app.post('/register', upload.single('avatar'), async (req, res) => {
 
   // Verificar si avatar es nulo y proporcionar un valor predeterminado
   if (!avatar) {
-    avatar = 'default-avatar.jpg'; // Aquí puedes establecer el nombre de la imagen predeterminada
+    avatar = 'default-avatar.jpg'; 
   }
 
   connection.query(
@@ -425,7 +420,7 @@ app.post('/auth', upload.single('avatar'), async (req, res) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  // Resto del código de respuesta
+                  
                   Swal.fire({
                     icon: 'success',
                     title: 'Conexión exitosa',
@@ -445,7 +440,7 @@ app.post('/auth', upload.single('avatar'), async (req, res) => {
               });
             } else {
               console.log('El nombre de la imagen excede la longitud máxima permitida');
-              // Resto del código de respuesta
+            
               res.render('login', {
                 backgroundImage: 'resources/images/2021-08-07 17.40.37.jpg',
                 alert: true,
