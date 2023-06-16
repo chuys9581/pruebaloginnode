@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <style>
+        body {
+            background-image: url('<%= backgroundImage %>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: linear-gradient(to bottom, rgba(8,79,155,0.8), rgba(8,77,155,.85)), url('<%= backgroundImage %>');
+        }
+    </style>
+    <title>Home</title>
+</head>
+<body>
+    <!-- Aqui comienza el navegador vertical -->
+    <div class="wrap">
+        <div class="pdfs">
+            <div class="cargados">
+                <h1>Cargar un Recurso</h1>
+                <form method="post" enctype="multipart/form-data" action="/pdf" class="server">
+                    <input type="file" name="archivo" class="sube">
+                    <button type="submit" class="carga">Cargar archivo</button>
+                </form>
+            </div>
+            <div class="eliminados">
+                <ul class="archivos-lista">
+                    <% archivos.forEach(function(archivo) { %>
+                    <li class="secciones">
+                        <div class="prueba">
+                            <%= archivo %>
+                        </div>
+                        <div class="btn-juntos">
+                            <a href="/download/<%= archivo %>" class="des"> Descargar</a>
+                            <form method="post" action="/delete-pdf">
+                               <input type="hidden" name="archivo" value="<%= archivo %>">
+                               <button type="submit" class="eli">Eliminar</button>
+                            </form>
+                        </div>
+                    </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>  
+
+      <div class="navegador">
+        <div class="slogan">
+            <img src="resources/images/logoblanco.jpg" class="logo">
+            <div class="iglesia">
+                <p>Horizonte</p>
+                <p class="cdmx">CDMX</p>
+            </div>
+        </div>
+        <ul class="navegando">
+            <div class="envoltura">
+                <img src="resources/images/icons8-casa-50 (1).png" class="home">
+                <a href="/"><li class="one">Home</li></a>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-santa-biblia-50.png" class="home">
+                <li class="two" onmouseover="mostrarElemento()" onmouseout="ocultarElemento()">Discipulados
+                    <ul id="submenu">
+                      <div class="envoltura">
+                        <img src="resources/images/fe.png" class="home">
+                        <li class="three">Cimientos de la Fe</li>
+                      </div>
+                      <div class="envoltura">
+                        <img src="resources/images/personas.png" class="home">
+                        <li class="four">Vida de Cristo</li>
+                      </div>
+                    </ul>
+                </li>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-llamada-de-conferencia-64.png" class="home">
+                <li class="five">Asistencia</li>
+            </div>
+            <div class="envoltura">
+                 <img src="resources/images/icons8-carpeta-30.png" class="home">
+                 <a href="/recursos"><li class="six">Recursos</li></a>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-planificación-de-tareas-50.png" class="home">
+                <a href="/agenda"><li class="seven">Agenda</li></a> 
+            </div>
+         </ul>
+
+         <footer>
+            <% if (login) { %>
+              <% if (avatar) { %>
+                <img src="<%= '/resources/uploads/' + avatar %>" alt="Avatar" class="fotoperfil">
+              <% } else { %>
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="avatarForm">
+                  <input type="file" name="avatar" accept="images/*">
+                  <button type="submit">Subir</button>
+                </form>
+                <style>
+                  #avatarForm {
+                    display: none;
+                  }
+                </style>
+              <% } %>
+              <p class="saludo"><b><%= name %></b></p>
+              <a href="logout" class="a-logout" title="salir"><img src="resources/images/logout.png" class="out"></a>
+            <% } else { %>
+              <p><b><%= name %></b></p>
+              <a href="login" class="a-login">Ir al LOGIN</a>
+            <% } %>
+          </footer>  
+      </div>
+    </div>
+
+ <!-- Aqui termina el navegador vertical-->
+
+ <!-- Script para navegador  -->
+    <script>
+    function mostrarElemento() {
+        var elemento = document.getElementById("submenu");
+        elemento.style.display = "block";
+        elemento.style.transition = "4s";
+    }
+
+    function ocultarElemento() {
+        var elemento = document.getElementById("submenu");
+        elemento.style.display = "none";
+        elemento.style.transition = "2s";
+   }
+    </script>
+
+    <script src="resources/js/dom.js"></script>
+</body>
+</html>

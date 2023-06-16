@@ -1,0 +1,710 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+
+a:active {
+    color: inherit; /* Hereda el color del texto del elemento padre */
+    text-decoration: none; /* Quita la decoración de subrayado */
+}
+
+/* Aqui inician los estilos del navegador*/
+.navegador{
+    display: flex;
+    flex-direction: column;
+    width: 13rem;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 3s;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+}
+
+
+footer{
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    bottom: 0;
+    position: fixed; 
+    width: 13rem;
+}
+.out{
+    width: 2rem;
+    padding-left: 1rem;
+    padding-top: .8rem;
+}
+.saludo{
+    color: black;
+    padding-left: .3rem;
+    padding-top: .3rem;
+}
+
+.fotoperfil{
+    width: 3rem;
+    border-radius: 40px;
+    border:#078DF0  solid;
+    margin-top: .3rem;
+    margin-left: .3rem;
+}
+.slogan{
+   display: flex;
+   flex-direction: row;
+}
+.logo{
+    width: 4rem;
+    height: 4rem;
+    padding-left: .7rem;
+    padding-top: 1rem;
+    border-radius: 40%;
+}
+.iglesia{
+    padding-left: .5rem;
+    color: white;
+    margin-top: .8rem;
+    font-family: 'Bruno Ace', cursive;
+    font-weight: bold;
+
+}
+.cdmx{
+    margin-top: -1rem;
+}
+
+#submenu{
+    display: none;
+    padding-left: 1.3rem;
+    transition: 3s;
+}
+
+.navegando{
+    padding: 1rem;
+    color: black;
+    list-style: none;
+}
+li{
+    margin-top: 1.5rem;
+}
+
+/* iconos del nav */
+.envoltura{
+    display: flex;
+    flex-direction: row;
+}
+.home{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 1.3rem;
+    margin-right: .6rem;
+
+}
+
+.one {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-family: 'Nanum Myeongjo', serif;
+
+}
+.two {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-family: 'Nanum Myeongjo', serif;
+
+}
+.three {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    font-family: 'Nanum Myeongjo', serif;
+
+}
+.four {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: .9rem;
+    font-family: 'Nanum Myeongjo', serif;
+
+}
+.five {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-family: 'Nanum Myeongjo', serif;
+
+}
+.six {
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-family: 'Nanum Myeongjo', serif;
+}
+.seven{
+    transition: 1.5s;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+/* Aqui esta el hover para el menu */
+
+.one:hover{
+    transform: translateX(1em);
+    cursor: pointer;
+    width: 9rem;
+    opacity: .4;
+
+}
+
+.two:hover{
+    transform: translateX(.7em);
+    cursor: pointer;
+    opacity: .6;
+}
+
+.three:hover{
+    transform: translateX(.3em);
+    cursor: pointer;
+    opacity: .6;
+    
+}
+
+.four:hover{
+    transform: translateX(.3em);
+    cursor: pointer;
+    opacity: .6;
+    
+}
+
+.five:hover{
+    transform: translateX(1em);
+    cursor: pointer;
+    opacity: .6;
+}
+
+.six:hover{
+    transform: translateX(1em);
+    cursor: pointer;
+    opacity: .6;
+}
+
+.seven:hover{
+    transform: translateX(1em);
+    cursor: pointer;
+    opacity: .6;
+}
+/* Aqui terminan los estilos del navegador */
+
+
+
+
+
+
+.login-form, .contenedor{
+    width: 300px;
+    margin:0 auto;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 0 10px;
+    font-size: 1.7rem;
+    font-family: 'Archivo', sans-serif;
+}
+h3{
+    margin-top: -1.5rem;
+    color: white;
+    font-family: 'Archivo', sans-serif;
+    font-size: 1rem;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* estilos de vidrio */
+
+#inicio{
+    margin-top: 8rem;
+    min-height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    background: rgb(255 255 255 .03);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 15px 0px rgb(66 24 100/ 30%);
+
+}
+
+/* Estílos boton login*/
+
+.btn-login{
+    width: 100%;
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5  51%, #00d2ff  100%);
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;  
+    font-weight: bold;     
+    font-family: 'Archivo', sans-serif;     
+}
+
+.btn-login:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+/* btn de registro */
+
+.wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.texto{
+    color: white;
+}
+
+.btn-register{
+    margin-left: .7rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+ 
+
+/* ESTILOS PARA EL FORMULARIO DE REGISTROS */
+.register-form, .contenedor{
+    width: 300px;
+    margin:0 auto;
+}
+.register-form input[type="password"],
+.register-form input[type="email"],
+.register-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#inicio2{
+    margin-top: 5rem;
+    min-height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    background: rgb(255 255 255 .03);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 5px 15px 0px rgb(66 24 100/ 30%);
+}
+
+label{
+    color: white;
+}
+
+/* Boton de registro */
+
+.btn-save{
+    width: 100%;
+    background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5  51%, #00d2ff  100%);
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;  
+    font-weight: bold;     
+    font-family: 'Archivo', sans-serif;     
+}
+
+.btn-save:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-loginn{
+    margin-left: .7rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.title1{
+    margin: auto;
+    width: 45rem;
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.verso{
+    color: white;
+    margin-top: -1.5rem;
+    padding-left: 35.5rem;
+    font-size: 1.3rem;
+}
+
+/* Aqui los estilos de recursos.ejs */
+
+.cargados{
+    margin: auto;
+    margin-top: 3rem;
+    width: 30rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.server{
+    display: flex;
+    flex-direction: column;
+}
+
+.sube{
+    color: white;
+    margin: auto;
+    cursor: pointer;
+}
+
+.archivos-lista {
+    column-count: 2;
+    column-gap: 20px; /* Espacio entre las columnas, ajusta según tus necesidades */
+    column-fill: balance; /* Asegura que las columnas se llenen por igual */
+    padding-top: 1rem;
+
+}
+         
+.carga {
+    background-image: linear-gradient(to right, #00bf8f 0%, #001510  51%, #00bf8f  100%);
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 15px 5px;
+    width: 8rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border:none;
+    cursor: pointer;
+}
+
+.carga:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+ 
+
+.pdfs{
+  
+    margin-top: 2rem;
+    margin-left: 1rem;
+    margin: auto;
+    
+}
+
+.title3{
+    padding-left: 3rem;
+}
+
+.eliminados{
+    padding-top: 4rem;
+    color: white;
+}
+
+.secciones{
+    display: flex;
+    flex-direction: row;
+}
+.btn-juntos{
+    display: flex;
+    flex-direction: column;
+    padding-top: .2rem;
+}
+         
+.des {
+    background-image: linear-gradient(to right, #44A08D 0%, #093637  51%, #44A08D  100%);
+    margin: 7px;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 2px #eee;
+    border-radius: 5px;
+    width: 4rem;
+    font-size: .7rem;
+  }
+
+.des:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+         
+.eli {
+    background-image: linear-gradient(to right, #cb2d3e 0%, #ef473a  51%, #cb2d3e  100%);
+    margin: 5px;
+    margin-top: 2px;
+    padding: 5px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 2px #eee;
+    border-radius: 5px;
+    border: none;
+    width: 5.3rem;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
+.eli:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+ 
+         
+.prueba {
+    background-image: linear-gradient(to right, #16222A 0%, #3A6073  51%, #16222A  100%);
+    margin: 7px;
+    padding: 10px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 6px #eee;
+    border-radius: 4px;
+    width: 13rem;
+  }
+
+.prueba:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+
+
+  /* AQUI INICIAN LOS ESTILOS DE LA AGENDA */
+
+  .agendaBack{
+    margin: auto;
+    width: 40rem;
+    margin-top: 3rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.encabezado{
+    color: white;
+    margin-bottom: 1rem;
+}
+.delate-evento{
+    background-image: linear-gradient(to right, #D31027 0%, #EA384D  51%, #D31027  100%);
+    padding: .3rem 1rem;
+    margin:.3rem .3rem .3rem .3rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .7rem;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border-radius: 10px;
+    display: flex;
+    text-decoration: none;
+}
+
+.delate-evento:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+}
+
+.save{
+
+    background-image: linear-gradient(to right, #136a8a 0%, #267871  51%, #136a8a  100%);
+    padding: .3rem 1rem;
+    margin:.3rem .3rem .3rem .3rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border-radius: 10px;
+    border: none;
+}
+
+.save:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+     
+  
+
+table {
+
+    padding: 1rem;
+    border: white solid;
+    margin: .5rem;
+  }
+  
+  td {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    width: 10rem;
+  }
+ 
+.form-agenda1{
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.f-agenda{
+    width: 5rem;
+    height: 1.5rem;
+}
+
+.tr{
+   border: gray;
+}
+.btn-pdf{
+    padding-left: 43%;
+    padding-bottom: .5rem;
+    align-items: center;
+}
+.pdf-button{
+    width: 7rem;
+    height: 3rem;
+    padding: .4rem;       
+    background-image: linear-gradient(to right, #00bf8f 0%, #001510  51%, #00bf8f  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border: none;
+}
+
+.pdf-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.down{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 2rem;
+    margin-top: .2rem;
+    animation: moveArrow .6s infinite alternate;
+    position: relative;
+}
+
+@keyframes moveArrow {
+    0% {
+      top: 0;
+    }
+    100% {
+      top: 2px; 
+    }
+}
+
+.btn-evento{
+    padding: .5rem;
+    margin-top: 1rem;
+    
+    background-image: linear-gradient(to right, #36D1DC 0%, #5B86E5  51%, #36D1DC  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    box-shadow: 0 0 5px #eee;
+    color: white;            
+    box-shadow: 0 0 5px #eee;
+    border-radius: 10px;
+    border: none;
+    font-size: .5rem;
+}
+
+.btn-evento:hover {
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+         
+          

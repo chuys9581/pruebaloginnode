@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <style>
+        body {
+            background-image: url('<%= backgroundImage %>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: linear-gradient(to bottom, rgba(8,79,155,0.8), rgba(8,77,155,.85)), url('<%= backgroundImage %>');
+        }
+    </style>
+    <title>Home</title>
+</head>
+<body>
+    <!-- Aqui comienza el navegador vertical -->
+    <div class="wrap">
+      <di class="agendaBack">
+        <h1 class="encabezado">Calendario de Enseñanzas</h1>
+    
+        <form action="/agregar-evento" method="POST" class="form-agenda1">
+            <input type="text" name="modulo" placeholder="Módulo" required class="f-agenda">
+            <input type="text" name="tema" placeholder="Tema" required class="f-agenda">
+            <input type="text" name="profesor" placeholder="Profesor" required class="f-agenda">
+            <input type="time" name="hora" required class="f-agenda">
+            <input type="date" name="fecha" required class="f-agenda">
+            <button type="submit" class="btn-evento">Agregar Evento</button>
+        </form>
+    
+        <table>
+            <thead>
+              <tr>
+                <th>Módulo</th>
+                <th>Tema</th>
+                <th>Profesor</th>
+                <th>Hora</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% eventos.forEach(function(evento) { %>
+                <tr>
+                  <form action="/guardar-edicion/<%= evento.id %>" method="POST">
+                    <td><input type="text" name="modulo" value="<%= evento.modulo %>" required class="f-agenda" ></td>
+                    <td><input type="text" name="tema" value="<%= evento.tema %>" required class="f-agenda"></td>
+                    <td><input type="text" name="profesor" value="<%= evento.profesor %>" required class="f-agenda"></td>
+                    <td><input type="time" name="hora" value="<%= evento.hora %>" required class="f-agenda"></td>
+                    <td><input type="date" name="fecha_<%= evento.id %>" value="<%= evento.fecha.toISOString().split('T')[0] %>" required class="f-agenda"></td>
+                    <td>
+                      <button type="submit" class="save">Guardar</button>
+                      <a href="/eliminar-evento/<%= evento.id %>" class="delate-evento">Eliminar</a>
+                    </td>
+                  </form>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+            <% if (error === 'missing_date') { %>
+              <p class="error-message">Fecha es obligatoria</p>
+            <% } %>
+
+            <form action="/descargar-pdf" method="GET" class="btn-pdf">
+               <button type="submit" class="pdf-button">Descargar PDF<img src="resources/images/download.png" class="down"></button>
+            </form>
+
+      </di>
+      <div class="navegador">
+        <div class="slogan">
+            <img src="resources/images/logoblanco.jpg" class="logo">
+            <div class="iglesia">
+                <p>Horizonte</p>
+                <p class="cdmx">CDMX</p>
+            </div>
+        </div>
+        <ul class="navegando">
+            <div class="envoltura">
+                <img src="resources/images/icons8-casa-50 (1).png" class="home">
+                <a href="/"><li class="one">Home</li></a>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-santa-biblia-50.png" class="home">
+                <li class="two" onmouseover="mostrarElemento()" onmouseout="ocultarElemento()">Discipulados
+                    <ul id="submenu">
+                      <div class="envoltura">
+                        <img src="resources/images/fe.png" class="home">
+                        <li class="three">Cimientos de la Fe</li>
+                      </div>
+                      <div class="envoltura">
+                        <img src="resources/images/personas.png" class="home">
+                        <li class="four">Vida de Cristo</li>
+                      </div>
+                    </ul>
+                </li>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-llamada-de-conferencia-64.png" class="home">
+                <li class="five">Asistencia</li>
+            </div>
+            <div class="envoltura">
+                 <img src="resources/images/icons8-carpeta-30.png" class="home">
+                 <a href="/recursos"><li class="six">Recursos</li></a>
+            </div>
+            <div class="envoltura">
+                <img src="resources/images/icons8-planificación-de-tareas-50.png" class="home">
+                <a href="/agenda"><li class="seven">Agenda</li></a>
+            </div>
+         </ul>
+
+         <footer>
+            <% if (login) { %>
+              <% if (avatar) { %>
+                <img src="<%= '/resources/uploads/' + avatar %>" alt="Avatar" class="fotoperfil">
+              <% } else { %>
+                <form action="/upload" method="POST" enctype="multipart/form-data" id="avatarForm">
+                  <input type="file" name="avatar" accept="images/*">
+                  <button type="submit">Subir</button>
+                </form>
+                <style>
+                  #avatarForm {
+                    display: none;
+                  }
+                </style>
+              <% } %>
+              <p class="saludo"><b><%= name %></b></p>
+              <a href="logout" class="a-logout" title="salir"><img src="resources/images/logout.png" class="out"></a>
+            <% } else { %>
+              <p><b><%= name %></b></p>
+              <a href="login" class="a-login">Ir al LOGIN</a>
+            <% } %>
+          </footer>  
+      </div>
+    </div>
+
+ <!-- Aqui termina el navegador vertical-->
+
+ <!-- Script para navegador  -->
+    <script>
+    function mostrarElemento() {
+        var elemento = document.getElementById("submenu");
+        elemento.style.display = "block";
+        elemento.style.transition = "4s";
+    }
+
+    function ocultarElemento() {
+        var elemento = document.getElementById("submenu");
+        elemento.style.display = "none";
+        elemento.style.transition = "2s";
+   }
+    </script>
+
+    <script src="resources/js/dom.js"></script>
+</body>
+</html>
