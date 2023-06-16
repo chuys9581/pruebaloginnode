@@ -8,7 +8,7 @@ const fs = require('fs');
 const slugify = require('slugify');
 const ExcelJS = require('exceljs');
 const mysql = require('mysql');
-const autenticar = require('./autenticar'); 
+const autenticar = require('./routes/autenticar'); 
 
 const storage = multer.diskStorage({
   destination: 'public/uploads',
